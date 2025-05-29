@@ -1,6 +1,6 @@
 # Luvenshtein
 
-Projeto de integração entre C e Lua para cálculo da distância de Levenshtein entre strings.
+Projeto de integração entre C e Lua para cálculo da distância de Levenshtein entre strings, com o interpretador Lua embutido.
 
 Este projeto foi desenvolvido como parte das atividades da disciplina **Programação para Interfaceamento de Hardware e Software** na Universidade Estadual de Maringá.
 
@@ -15,27 +15,14 @@ Demonstrar a integração entre:
 
 ---
 
-## 🔧 Estrutura do Projeto
-
-
-- `main.c`: programa principal que embute o interpretador Lua e expõe a função de distância de Levenshtein.
-- `levenshtein.c/h`: implementação da função de distância de Levenshtein.
-- `script.lua`: script que chama a função em C e imprime as distâncias de pelo menos quatro pares de strings.
-- `Makefile`: automatiza a compilação, execução e limpeza do projeto.
-- `LICENSE`: define a licença de uso do código-fonte.
-- `README.md`: este arquivo.
-
----
-
-## ▶️ Como executar
+## ▶️ Como compilar e executar
 
 ### Pré-requisitos
-- GCC (compilador C)
-- Lua 5.x instalado no sistema (incluindo headers `lua.h`, `lauxlib.h`, etc.)
+- Compilador GCC
 
 ### Comandos
 
 ```bash
-make        # Compila o projeto
-make run    # Executa o projeto
-make clean  # Remove os arquivos compilados
+make        # Compila o projeto, incluindo o interpretador Lua embutido
+make run    # Executa o programa principal
+make clean  # Remove arquivos compilados
