@@ -1,30 +1,20 @@
-# Nome do executável final
-TARGET = luvenshtein
-
-# Compilador
+TARGET = main
 CC = gcc
+CFLAGS = -Wall -O2 -std=c99 -I./lua
 
-# Flags de compilação
-CFLAGS = -Wall -O2 -std=c99
+# Fontes Lua (todos os .c da pasta lua/)
+LUA_SRC = $(wildcard lua/*.c)
 
-# Bibliotecas do Lua (ajuste conforme a versão do sistema)
-LUA_FLAGS = `pkg-config --cflags --libs lua5.4`
-
-# Fontes do projeto
 SRC = main.c levenshtein.c
 OBJ = $(SRC:.c=.o)
 
-# Regra padrão
 default: $(TARGET)
 
-# Compila o executável
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ $(LUA_FLAGS)
+$(TARGET): $(OBJ) $(LUA_SRC)
+	$(CC) $(CFLAGS) -o $@ $^ -lm
 
-# Executa o programa
 run: $(TARGET)
 	./$(TARGET)
 
-# Limpa arquivos compilados
 clean:
 	rm -f $(OBJ) $(TARGET)
