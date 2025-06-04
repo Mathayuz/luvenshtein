@@ -20,7 +20,14 @@ int c_levenshtein(lua_State *L) {
 int c_hamming(lua_State *L) {
     const char *s1 = luaL_checkstring(L, 1);
     const char *s2 = luaL_checkstring(L, 2);
-    int dist = hamming(s1, s2);
+
+    size_t len1 = strlen(s1);
+    size_t len2 = strlen(s2);
+    if (len1 != len2) {
+    return luaL_error(L,
+        "Hamming exige strings com o mesmo comprimento (%zu vs %zu).", len1, len2);
+    }
+    int dist = hamming(s1, s2, len1);
     lua_pushinteger(L, dist);
     return 1;
 }
