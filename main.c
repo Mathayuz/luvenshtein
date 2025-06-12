@@ -1,6 +1,12 @@
 // Lucas de Oliveira Fratus RA:134698
 // Matheus Cenerini Jacomini RA:134700
 
+// Como executar?
+// make	   # compilar
+// make run 	# executar
+// make clean	# limpar
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
