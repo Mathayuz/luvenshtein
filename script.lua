@@ -1,33 +1,22 @@
---[[] 
-  Esse script em Lua chama as funções definidas em C e exibe no console as distâncias 
-  de Levenshtein e de Hamming para algumas duplas de strings
-]]--
-print("Distância de Levenshtein entre pares de strings:")
-local pares_lev = {
-    { "casa",     "caso" },
-    { "kitten",   "sitting" },
-    { "flor",     "flora" },
-    { "intenção", "atenção" },
-    { "matheus", "mateus" }
-}
+-- Script em Lua para que chama as funções de c quem calculam as distâncias de Levenshtein e Hamming
+-- dos pares de strings
 
-for i, par in ipairs(pares_lev) do
-    local s1, s2 = par[1], par[2]
-    local dist = levenshtein(s1, s2)
-    print(string.format("\"%s\" - \"%s\": %d", s1, s2, dist))
+-- Listas paralelas de pares para Levenshtein
+local lev_s1 = { "casa", "kitten", "flor", "intenção", "matheus" }
+local lev_s2 = { "caso",  "sitting","flora","atenção",   "mateus" }
+
+print("Distância de Levenshtein entre pares de strings:")
+for i = 1, #lev_s1 do
+  local d = levenshtein(lev_s1[i], lev_s2[i])
+  print(lev_s1[i] .. " - " .. lev_s2[i] .. ": " .. d)
 end
 
+-- Listas paralelas de pares para Hamming
+local ham_s1 = { "1011101", "carolina", "lucas", "1011101", "lucas", "oi" }
+local ham_s2 = { "1001001", "caroline","vitor","1011111","lukas","hi"    }
+
 print("\nDistância de Hamming entre pares de strings (mesmo comprimento):")
-local pares_ham = {
-    { "1011101", "1001001" },
-    { "carolina", "caroline" },
-    { "lucas", "vitor" },
-    { "1011101", "1011111" },
-    { "lucas", "lukas" },
-    { "oi", "hi"}
-}
-for _, par in ipairs(pares_ham) do
-    local s1, s2 = par[1], par[2]
-    local dist = hamming(s1, s2)
-    print(string.format("\"%s\" - \"%s\": %d", s1, s2, dist))
+for i = 1, #ham_s1 do
+  local d = hamming(ham_s1[i], ham_s2[i])
+  print(ham_s1[i] .. " - " .. ham_s2[i] .. ": " .. d)
 end
