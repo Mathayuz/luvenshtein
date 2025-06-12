@@ -43,3 +43,7 @@ make clean
 Este projeto e as implementações de Levenshtein e Hamming estão licenciadas sob a MIT License.
 
 Veja o diretório LICENSES para as licenças completas.
+
+## Autores
+- Lucas de Oliveira Fratus
+- Matheus Cenerini Jacomini
