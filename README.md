@@ -50,4 +50,5 @@ Veja o diretório LICENSES para as licenças completas.
 
 ## Autores
 - Lucas de Oliveira Fratus
+  
 - Matheus Cenerini Jacomini
