@@ -38,6 +38,10 @@ Para limpar (remover) os arquivos compilados:
 make clean 
 ```
 
+## Autores
+Lucas de Oliveira Fratus
+Matheus Cenerini Jacomini
+
 ## Licença
 
 Este projeto e as implementações de Levenshtein e Hamming estão licenciadas sob a MIT License.
